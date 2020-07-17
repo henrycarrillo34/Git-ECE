@@ -14,7 +14,7 @@ int main(void)
 {   DDRC = 0XFF;
 	Lcd_Init();
 	Lcd_Clear();
-	//char s[10];
+	
 	//int y = 23;
 	//sprintf(s,"%u", y);
 	//Lcd_Set_Cursor(2,5);
@@ -27,8 +27,9 @@ int main(void)
 		resistance = Read_MAX31865 (0,400);
 		temperatura = calc_temp_pt100 (resistance);
 		Lcd_Set_Cursor(1,1);
-		
-		Lcd_Write_String(temperatura);
+		char s[10];
+		sprintf(s,"%u", temperatura);
+		Lcd_Write_String(s);
 	}
 
 
